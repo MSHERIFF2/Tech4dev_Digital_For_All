@@ -65,7 +65,41 @@ const users = [
 // Do not use chat gpt, you are allowed to google.
 
 // Questions
-//1. I want a new array that returns the current content of the array but adds a total property to each user, all i need in the total property is the total amount of products for that user. Please note that total amount should also account for quantity. 
+// 1. I want a new array that returns the current content of the array but adds a total property to each user, 
+// all i need in the total property is the total amount of products for that user. Please note that total amount 
+// should also account for quantity. 
+function addTotal() {
+const newUser = users.map( (user) => ({
+  ...user,
+  productsInCart: user.productsInCart.map( (product) => ({
+    ...product,
+    total: parseInt(product.quantity) * product.price
+    }))
+    
+    
+  }))
+  for (let i = 0; i < newUser.length; i++){
+    console.log(newUser[i])
+    for (let j = 0; j < newUser[i].productsInCart.length; j ++){
+      console.log(newUser[i].productsInCart[j])
+    }
+    
+  }
+  
+}
+addTotal()
 //2. I want a new array that returns only users whose total is over 3500
+function totalOver_3500() {
+  const newUser = users.map( (user) => ({
+    productsInCart: user.productsInCart.map( (product) => ({
+      ...product,
+      total: parseInt(product.quantity) * product.price
+      })).filter( (product) => product.total > 3500)
+      
+    }))
+    console.log(newUser[0].productsInCart)
+  }
+  totalOver_3500()
 //3. I want a new array that returns this same array but with a full name property that adds the first name and the last name;
+
 //4. I want a new array that returns only products who have quantity more  than 2 
