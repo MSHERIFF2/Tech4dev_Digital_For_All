@@ -64,10 +64,10 @@ const users = [
 // Use users array for all questions.
 // Do not use chat gpt, you are allowed to google.
 
-// Questions
-// 1. I want a new array that returns the current content of the array but adds a total property to each user, 
-// all i need in the total property is the total amount of products for that user. Please note that total amount 
-// should also account for quantity. 
+/* Questions
+1. I want a new array that returns the current content of the array but adds a total property to each user, 
+ all i need in the total property is the total amount of products for that user. Please note that total amount 
+should also account for quantity.  */
 function addTotal() {
 const newUser = users.map( (user) => ({
   ...user,
@@ -80,26 +80,58 @@ const newUser = users.map( (user) => ({
   }))
   for (let i = 0; i < newUser.length; i++){
     console.log(newUser[i])
-    for (let j = 0; j < newUser[i].productsInCart.length; j ++){
-      console.log(newUser[i].productsInCart[j])
-    }
-    
+   
   }
   
 }
+console.log('------------- addTotal Function ----------------------')
 addTotal()
 //2. I want a new array that returns only users whose total is over 3500
-function totalOver_3500() {
+function totalOver3500() {
   const newUser = users.map( (user) => ({
+    ...user,
     productsInCart: user.productsInCart.map( (product) => ({
       ...product,
       total: parseInt(product.quantity) * product.price
       })).filter( (product) => product.total > 3500)
       
     }))
-    console.log(newUser[0].productsInCart)
+    for (let i = 0; i < newUser.length; i++){
+      console.log(newUser[i])
+     
+    }
   }
-  totalOver_3500()
-//3. I want a new array that returns this same array but with a full name property that adds the first name and the last name;
+  console.log('------------- totalOver3500 Function ----------------------')
+  totalOver3500()
+/*3. I want a new array that returns this same array 
+but with a full name property that 
+adds the first name and the last name;
+ */
+function fullName() {
+  const newUsers = users.map( (user) => ({
+    ...user,
+    full_name: `${user.firstName}  ${user.lastName}`
+  }))
+  for (let i = 0; i < newUsers.length; i++) {
+    console.log(newUsers[i])
+  }
+}
+console.log('------------- fullName Function ----------------------')
+fullName()
 
 //4. I want a new array that returns only products who have quantity more  than 2 
+function quantityMoreThan2() {
+  const newUser = users.map( (user) => ({
+    ...user,
+    productsInCart: user.productsInCart.map( (product) => ({
+      ...product,      
+      })).filter( (product) => product.quantity > 2)
+      
+    }))
+    for (let i = 0; i < newUser.length; i++){
+      console.log(newUser[i])
+     
+    }
+  }
+  console.log('------------- quantityMoreThan2 Function ----------------------')
+  quantityMoreThan2()
