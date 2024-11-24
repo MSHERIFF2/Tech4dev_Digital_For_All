@@ -68,7 +68,7 @@ const users = [
 1. I want a new array that returns the current content of the array but adds a total property to each user, 
  all i need in the total property is the total amount of products for that user. Please note that total amount 
 should also account for quantity.  */
-function addTotal() {
+const addTotal = () => {
 const newUser = users.map( (user) => ({
   ...user,
   productsInCart: user.productsInCart.map( (product) => ({
@@ -87,7 +87,7 @@ const newUser = users.map( (user) => ({
 console.log('------------- addTotal Function ----------------------')
 addTotal()
 //2. I want a new array that returns only users whose total is over 3500
-function totalOver3500() {
+const  totalOver3500 = () => {
   const newUser = users.map( (user) => ({
     ...user,
     productsInCart: user.productsInCart.map( (product) => ({
@@ -107,7 +107,7 @@ function totalOver3500() {
 but with a full name property that 
 adds the first name and the last name;
  */
-function fullName() {
+const fullName = () => {
   const newUsers = users.map( (user) => ({
     ...user,
     full_name: `${user.firstName}  ${user.lastName}`
@@ -120,7 +120,7 @@ console.log('------------- fullName Function ----------------------')
 fullName()
 
 //4. I want a new array that returns only products who have quantity more  than 2 
-function quantityMoreThan2() {
+const quantityMoreThan2 = () => {
   const newUser = users.map( (user) => ({
     ...user,
     productsInCart: user.productsInCart.map( (product) => ({
